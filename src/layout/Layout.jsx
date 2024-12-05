@@ -13,7 +13,6 @@ function DefaultLayout() {
         flexDirection: "column",
       }}
     >
-      {/* Fixed Navbar */}
       <Box
         sx={{ position: "fixed", top: 0, left: 0, width: "100%", zIndex: 1200 }}
       >
@@ -23,9 +22,9 @@ function DefaultLayout() {
       {/* Scrollable Body */}
       <Box
         sx={{
-          flex: 1, // Fills the remaining vertical space
-          overflowY: "auto", // Enables vertical scrolling
-          mt: 8, // Matches the Navbar height
+          flex: 1,
+          overflowY: "auto",
+          mt: 8,
         }}
       >
         <Container maxWidth="lg" sx={{ p: { xs: 0, md: 1, lg: 2 } }}>

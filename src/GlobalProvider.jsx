@@ -4,10 +4,14 @@ import React, { createContext, useContext, useState } from "react";
 const GlobalContext = createContext();
 
 export const GlobalProvider = ({ children }) => {
-  const [state, setState] = useState("some global data");
+  const [theme, setTheme] = useState("light");
+
+  const toggleTheme = () => {
+    setTheme((theme) => (theme === "light" ? "dark" : "light"));
+  };
 
   return (
-    <GlobalContext.Provider value={{ state, setState }}>
+    <GlobalContext.Provider value={{ theme, toggleTheme }}>
       {children}
     </GlobalContext.Provider>
   );

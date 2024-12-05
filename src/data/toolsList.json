@@ -79,14 +79,6 @@
       "path": "/image/converter",
       "disabled": false,
       "icon": "https://img.icons8.com/isometric/50/refresh.png"
-    },
-
-    {
-      "name": "Image optimizer",
-      "description": "Crop images to your preferred size.",
-      "path": "/image/optimizer",
-      "disabled": false,
-      "icon": "https://img.icons8.com/isometric/50/crop.png"
     }
   ],
   "Pdf": [
