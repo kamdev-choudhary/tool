@@ -31,13 +31,13 @@ const DrawerItems = ({ setDrawerOpen }) => {
         }}
         sx={{ display: "flex", alignItems: "center", padding: "8px 16px" }}
       >
-        <ListItemIcon>
+        {/* <ListItemIcon>
           <img
             src={button.icon}
             alt={button.name}
             style={{ height: "24px", marginRight: 8 }}
           />
-        </ListItemIcon>
+        </ListItemIcon> */}
         <Typography>{button.name}</Typography>
       </MenuItem>
     ));

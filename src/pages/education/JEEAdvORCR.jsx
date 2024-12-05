@@ -151,30 +151,15 @@ function JEEAdvORCR() {
 
             <Grid size={{ xs: 12, lg: 6 }}>
               <Box>
-                <FormControl>
-                  <FormLabel>Gender</FormLabel>
-                  <RadioGroup
-                    row
-                    value={gender}
-                    onChange={(e) => setGender(e.target.value)}
-                  >
-                    <FormControlLabel
-                      value=""
-                      control={<Radio />}
-                      label="All"
-                    />
-                    <FormControlLabel
-                      value="Gender-Neutral"
-                      control={<Radio />}
-                      label="Gender-Neutral"
-                    />
-                    <FormControlLabel
-                      value="Female-only (including Supernumerary)"
-                      control={<Radio />}
-                      label="Female-only (including Supernumerary)"
-                    />
-                  </RadioGroup>
-                </FormControl>
+                <CustomDropDown
+                  value={gender}
+                  data={[
+                    "Gender-Neutral",
+                    "Female-only (including Supernumerary)",
+                  ]}
+                  label="Gender"
+                  onChange={(e) => setGender(e.target.value)}
+                />
               </Box>
             </Grid>
             <Grid size={{ xs: 12, lg: 6 }}>
