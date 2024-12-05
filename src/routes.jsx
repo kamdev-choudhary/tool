@@ -1,6 +1,7 @@
 import React from "react";
 import { Route, Routes } from "react-router-dom";
 import NotFoundPage from "./pages/NotFound";
+import Loader from "./components/Loader";
 
 const Home = React.lazy(() => import("./pages/home/Home"));
 
@@ -23,6 +24,7 @@ const Dictionary = React.lazy(() =>
 // Entertainments
 const Jokes = React.lazy(() => import("./pages/entertainments/Jokes"));
 const Sayari = React.lazy(() => import("./pages/entertainments/Sayari"));
+const Movies = React.lazy(() => import("./pages/entertainments/Movies"));
 
 // Image Tools
 const ImageCompressor = React.lazy(() =>
@@ -65,6 +67,7 @@ const routes = (
     {/* Entertainments */}
     <Route path="/jokes" element={<Jokes />} />
     <Route path="/sayari" element={<Sayari />} />
+    <Route path="/movies" element={<Movies />} />
 
     {/* Images tools */}
     <Route path="/image/compressor" element={<ImageCompressor />} />

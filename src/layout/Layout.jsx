@@ -22,7 +22,7 @@ function DefaultLayout() {
         sx={{
           flex: 1,
           overflowY: "auto",
-          mt: 8,
+          mt: 6.5,
         }}
       >
         <Container maxWidth="lg" sx={{ p: { xs: 1, md: 1, lg: 2 } }}>

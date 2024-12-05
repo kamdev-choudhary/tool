@@ -38,6 +38,13 @@
       "path": "/sayari",
       "disabled": false,
       "icon": "https://img.icons8.com/3d-fluency/50/quote-right.png"
+    },
+    {
+      "name": "Movies",
+      "description": "Movies",
+      "path": "/movies",
+      "disabled": false,
+      "icon": "https://img.icons8.com/3d-fluency/50/quote-right.png"
     }
   ],
   "Utilities": [
