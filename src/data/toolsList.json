@@ -1,0 +1,134 @@
+{
+  "Tools": [
+    {
+      "name": "Password Generator",
+      "description": "A secure password generator to create strong and random passwords.",
+      "path": "/password-generator",
+      "disabled": false,
+      "icon": "https://img.icons8.com/3d-fluency/ios-filled/50/lock--v1.png"
+    },
+    {
+      "name": "Color Picker",
+      "description": "A tool to select, preview, and copy color codes in HEX, RGB, and HSL formats.",
+      "path": "/color-picker",
+      "disabled": true,
+      "icon": "https://img.icons8.com/3d-fluency/ios-filled/50/color-palette.png"
+    }
+  ],
+  "Cryptography": [
+    {
+      "name": "Crypto JS",
+      "description": "A versatile JavaScript library for implementing cryptographic algorithms.",
+      "path": "/crypto",
+      "disabled": false,
+      "icon": "https://img.icons8.com/3d-fluency/94/key.png"
+    }
+  ],
+  "Entertainment": [
+    {
+      "name": "Jokes",
+      "description": "A random Jokes to fresh your mood",
+      "path": "/jokes",
+      "disabled": false,
+      "icon": "https://img.icons8.com/3d-fluency/50/grinning-squinting-face.png"
+    },
+    {
+      "name": "Sayari",
+      "description": "Sayari",
+      "path": "/sayari",
+      "disabled": false,
+      "icon": "https://img.icons8.com/3d-fluency/50/quote-right.png"
+    }
+  ],
+  "Utilities": [
+    {
+      "name": "Clock",
+      "description": "A custom clock which shows real-time.",
+      "path": "/clock",
+      "disabled": false,
+      "icon": "https://img.icons8.com/3d-fluency/94/clock.png"
+    },
+    {
+      "name": "QR Code Generator",
+      "description": "Generates QR codes for URLs, text, and contact details.",
+      "path": "/qr-code-generator",
+      "disabled": false,
+      "icon": "https://img.icons8.com/3d-fluency/ios-filled/50/qr-code.png"
+    },
+    {
+      "name": "Dictionary",
+      "description": "A quick and easy-to-use tool for looking up word definitions, synonyms, and antonyms.",
+      "path": "/dictionary",
+      "disabled": false,
+      "icon": "https://img.icons8.com/3d-fluency/94/books.png"
+    }
+  ],
+
+  "Image": [
+    {
+      "name": "Image Compressor",
+      "description": "Generates QR codes for URLs, text, and contact details.",
+      "path": "/image/compressor",
+      "disabled": false,
+      "icon": "https://img.icons8.com/isometric/50/collapse.png"
+    },
+
+    {
+      "name": "Image Converter",
+      "description": "Convert images between different formats (JPG, PNG, GIF, etc.).",
+      "path": "/image/converter",
+      "disabled": false,
+      "icon": "https://img.icons8.com/isometric/50/refresh.png"
+    },
+
+    {
+      "name": "Image optimizer",
+      "description": "Crop images to your preferred size.",
+      "path": "/image/optimizer",
+      "disabled": false,
+      "icon": "https://img.icons8.com/isometric/50/crop.png"
+    }
+  ],
+  "Pdf": [
+    {
+      "name": "PDF Compressor",
+      "description": "",
+      "path": "/pdf/compressor",
+      "icon": "https://img.icons8.com/isometric/50/merge-vertical.png"
+    }
+  ],
+  "Education": [
+    {
+      "name": "JEE Main Rank Calculator",
+      "description": "",
+      "path": "/jee/main/rank-calculator",
+      "icon": "https://img.icons8.com/3d-fluency/50/rating.png"
+    },
+    {
+      "name": "JEE Main Closing Rank",
+      "description": "",
+      "path": "/jee/main/closing-rank",
+      "icon": "https://img.icons8.com/3d-fluency/50/home.png"
+    }
+  ],
+  "Developer": [
+    {
+      "name": "Excel to Json",
+      "icon": "https://img.icons8.com/3d-fluency/50/slice.png",
+      "path": "/dev/excel-to-json",
+      "description": ""
+    },
+    {
+      "name": "Json to Excel",
+      "icon": "https://img.icons8.com/3d-fluency/50/slice.png",
+      "path": "/dev/json-to-excel",
+      "description": ""
+    },
+    {
+      "name": "Free APIs",
+      "icon": "https://img.icons8.com/3d-fluency/50/slice.png",
+      "path": "/dev/free-api",
+      "description": ""
+    }
+  ]
+}

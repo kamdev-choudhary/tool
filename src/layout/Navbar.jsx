@@ -17,7 +17,7 @@ import {
 } from "@mui/icons-material";
 import { useGlobalContext } from "../GlobalProvider";
 import { useNavigate } from "react-router-dom";
-// import toolsList from "../data/toolsList.json";
+import toolsList from "../data/toolsList.json";
 import { icons } from "../constants/icons";
 import DrawerItems from "./DrawerItems";
 
@@ -25,7 +25,6 @@ const Navbar = () => {
   const navigate = useNavigate();
   const { theme, toggleTheme } = useGlobalContext();
   const isSmallScreen = useMediaQuery("(max-width: 650px)");
-  const toolsList = {};
 
   // State for managing menu and drawer
   const [menuAnchor, setMenuAnchor] = useState(null); // Tracks which menu is open (anchor element)
