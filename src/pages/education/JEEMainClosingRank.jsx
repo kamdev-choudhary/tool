@@ -11,63 +11,129 @@ import {
   RadioGroup,
   FormControlLabel,
   Radio,
-  Button,
 } from "@mui/material";
+import { CustomToolbar } from "../../components/CustomToolbar";
 
 import states from "../../data/nit/states.json";
 import nit2024 from "../../data/nit/nit2024.json";
+import categories from "../../data/nit/categories.json";
 import _ from "lodash";
 import { DataGrid } from "@mui/x-data-grid";
 
 const quotas = [
   { name: "Home State", value: "HS" },
   { name: "Other State", value: "OS" },
+  { name: "Jammu And Kashmir", value: "JK" },
 ];
 
 const seatTypes = [{ name: "Open", value: "open" }];
 
 function JEEMainClosingRank() {
   const [state, setState] = useState("");
-  const [quota, setQuota] = useState("hs");
+  const [quota, setQuota] = useState("");
   const [gender, setGender] = useState("");
   const [seatType, setSeatType] = useState("");
   const [program, setProgram] = useState("");
-  const [data, setData] = useState(null);
 
-  const programs = useMemo(() => {}, []);
+  // Generate unique programs dynamically based on selected filters
+  const programs = useMemo(() => {
+    const filteredPrograms = nit2024.filter((d) => {
+      return (
+        (!state || d.State === state) &&
+        (!quota || d.Quota === quota) &&
+        (!seatType || d["Seat Type"] === seatType) &&
+        (!gender || d.Gender === gender)
+      );
+    });
 
-  const calculateData = () => {
-    try {
-      const filteredData = nit2024.filter((d) => {
-        return (
-          d.State === state ||
-          d.Quota === quota ||
-          d.SeatType === seatType ||
-          !gender ||
-          d.Gender === gender ||
-          !program ||
-          d.Program === program
-        );
-      });
-      setData(filteredData);
-    } catch (error) {
-      console.error("Error calculating data:", error);
-    }
-  };
+    const uniquePrograms = _.uniqBy(
+      filteredPrograms.map((d) => ({
+        name: d["Academic Program Name"],
+        value: d["Academic Program Name"],
+      })),
+      "value"
+    );
 
+    return _.sortBy(uniquePrograms, "name");
+  }, [state, quota, gender, seatType]);
+
+  // Filtered Data Logic
+  const filteredData = useMemo(() => {
+    return nit2024.filter((d) => {
+      return (
+        (!state || d.State === state) &&
+        (!quota || d.Quota === quota) &&
+        (!seatType || d["Seat Type"] === seatType) &&
+        (!gender || d.Gender === gender) &&
+        (!program || d["Academic Program Name"] === program)
+      );
+    });
+  }, [state, quota, gender, seatType, program]);
+
+  // Columns for DataGrid
   const columns = [
-    { field: "id", headerName: "SN" },
-    { field: "Institute", headerName: "Insitute" },
-    { field: "State", headerName: "Insitute" },
-    { field: "Academic Program Name", headerName: "Insitute" },
-    { field: "Quota", headerName: "Insitute" },
-    { field: "Seat Type", headerName: "Insitute" },
-    { field: "Gender", headerName: "Insitute" },
+    {
+      field: "id",
+      headerName: "SN",
+      width: 50,
+      align: "center",
+      headerAlign: "center",
+    },
+    { field: "Institute", headerName: "Institute", minWidth: 250 },
+    {
+      field: "State",
+      headerName: "State",
+      minWidth: 100,
+      align: "center",
+      headerAlign: "center",
+    },
+    {
+      field: "Academic Program Name",
+      headerName: "Program Name",
+      minWidth: 250,
+      flex: 1,
+    },
+    {
+      field: "Quota",
+      headerName: "Quota",
+      minWidth: 100,
+      align: "center",
+      headerAlign: "center",
+    },
+    {
+      field: "Seat Type",
+      headerName: "Seat Type",
+      minWidth: 100,
+      align: "center",
+      headerAlign: "center",
+    },
+    {
+      field: "Gender",
+      headerName: "Gender",
+      minWidth: 100,
+      align: "center",
+      headerAlign: "center",
+    },
+    {
+      field: "Opening Rank",
+      headerName: "Opening Rank",
+      minWidth: 100,
+      align: "center",
+      headerAlign: "center",
+    },
+    {
+      field: "Closing Rank",
+      headerName: "Closing Rank",
+      minWidth: 100,
+      headerAlign: "center",
+      align: "center",
+    },
   ];
 
+  // Rows for DataGrid
   const rows = useMemo(() => {
-    return data?.map((d, index) => ({ ...d, id: index + 1 }));
-  }, [data]);
+    return filteredData?.map((d, index) => ({ ...d, id: index + 1 }));
+  }, [filteredData]);
 
   return (
     <Box>
@@ -95,7 +161,6 @@ function JEEMainClosingRank() {
                 data={_.sortBy(states)}
                 onChange={(e) => setState(e.target.value)}
                 name="name"
-                // dropdownValue="value"
                 label="State"
               />
             </Grid>
@@ -115,18 +180,23 @@ function JEEMainClosingRank() {
                   <FormLabel>Gender</FormLabel>
                   <RadioGroup
                     row
-                    value={gender} // Controlled by state
+                    value={gender}
                     onChange={(e) => setGender(e.target.value)}
                   >
                     <FormControlLabel
-                      value="male"
+                      value=""
                       control={<Radio />}
-                      label="Male"
+                      label="All"
                     />
                     <FormControlLabel
-                      value="female"
+                      value="Gender-Neutral"
                       control={<Radio />}
-                      label="Female"
+                      label="Gender-Neutral"
+                    />
+                    <FormControlLabel
+                      value="Female-only (including Supernumerary)"
+                      control={<Radio />}
+                      label="Female-only (including Supernumerary)"
                     />
                   </RadioGroup>
                 </FormControl>
@@ -135,7 +205,7 @@ function JEEMainClosingRank() {
             <Grid size={{ xs: 12, lg: 6 }}>
               <CustomDropDown
                 value={seatType}
-                data={seatTypes}
+                data={categories}
                 onChange={(e) => setSeatType(e.target.value)}
                 name="name"
                 dropdownValue="value"
@@ -145,28 +215,36 @@ function JEEMainClosingRank() {
             <Grid size={{ xs: 12, lg: 6 }}>
               <CustomDropDown
                 value={program}
-                data={seatTypes}
+                data={programs}
                 onChange={(e) => setProgram(e.target.value)}
                 name="name"
                 dropdownValue="value"
-                label="Program Name"
+                label="Program"
               />
-            </Grid>
-            <Grid size={{ xs: 12 }}>
-              <Box sx={{ display: "flex", justifyContent: "center" }}>
-                <Button
-                  onClick={calculateData}
-                  variant="contained"
-                  sx={{ minWidth: 150 }}
-                >
-                  Get Ranks
-                </Button>
-              </Box>
             </Grid>
           </Grid>
         </Box>
       </Paper>
-      {data && <DataGrid columns={columns} rows={rows} />}
+
+      <Box
+        sx={{
+          borderRadius: 2,
+          boxShadow: "0px 4px 12px rgba(0, 0, 0, 0.1)",
+          transition: "all 0.3s ease-in-out",
+          ":hover": {
+            boxShadow: "0px 6px 16px rgba(0, 0, 0, 0.2)",
+          },
+          mt: 2,
+          bgcolor: "background.paper",
+        }}
+      >
+        <DataGrid
+          columns={columns}
+          rows={rows}
+          disableSelectionOnClick
+          slots={{ toolbar: () => <CustomToolbar showAddButton={false} /> }}
+        />
+      </Box>
     </Box>
   );
 }
