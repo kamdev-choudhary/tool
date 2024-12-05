@@ -11,7 +11,6 @@ import React from "react";
 function CustomDropDown({
   data = [],
   value = [],
-  keyField = "id",
   onChange,
   disabled = false,
   label = "",
@@ -46,11 +45,8 @@ function CustomDropDown({
         }
       >
         {data?.map((item, index) => (
-          <MenuItem
-            key={item?.[keyField] || index}
-            value={item?.[dropdownValue]}
-          >
-            {item?.[name]}
+          <MenuItem key={index} value={item?.[dropdownValue] || item}>
+            {item?.[name] || item}
           </MenuItem>
         ))}
       </Select>

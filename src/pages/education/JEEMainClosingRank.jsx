@@ -11,13 +11,17 @@ import {
   RadioGroup,
   FormControlLabel,
   Radio,
+  Button,
 } from "@mui/material";
 
-const states = [{ name: "Andhra Pradesh", value: "andhrapradesh" }];
+import states from "../../data/nit/states.json";
+import nit2024 from "../../data/nit/nit2024.json";
+import _ from "lodash";
+import { DataGrid } from "@mui/x-data-grid";
 
 const quotas = [
-  { name: "Home State", value: "hs" },
-  { name: "Other State", value: "os" },
+  { name: "Home State", value: "HS" },
+  { name: "Other State", value: "OS" },
 ];
 
 const seatTypes = [{ name: "Open", value: "open" }];
@@ -28,8 +32,42 @@ function JEEMainClosingRank() {
   const [gender, setGender] = useState("");
   const [seatType, setSeatType] = useState("");
   const [program, setProgram] = useState("");
+  const [data, setData] = useState(null);
 
   const programs = useMemo(() => {}, []);
+
+  const calculateData = () => {
+    try {
+      const filteredData = nit2024.filter((d) => {
+        return (
+          d.State === state ||
+          d.Quota === quota ||
+          d.SeatType === seatType ||
+          !gender ||
+          d.Gender === gender ||
+          !program ||
+          d.Program === program
+        );
+      });
+      setData(filteredData);
+    } catch (error) {
+      console.error("Error calculating data:", error);
+    }
+  };
+
+  const columns = [
+    { field: "id", headerName: "SN" },
+    { field: "Institute", headerName: "Insitute" },
+    { field: "State", headerName: "Insitute" },
+    { field: "Academic Program Name", headerName: "Insitute" },
+    { field: "Quota", headerName: "Insitute" },
+    { field: "Seat Type", headerName: "Insitute" },
+    { field: "Gender", headerName: "Insitute" },
+  ];
+
+  const rows = useMemo(() => {
+    return data?.map((d, index) => ({ ...d, id: index + 1 }));
+  }, [data]);
 
   return (
     <Box>
@@ -54,10 +92,10 @@ function JEEMainClosingRank() {
             <Grid size={{ xs: 12, lg: 6 }}>
               <CustomDropDown
                 value={state}
-                data={states}
+                data={_.sortBy(states)}
                 onChange={(e) => setState(e.target.value)}
                 name="name"
-                dropdownValue="value"
+                // dropdownValue="value"
                 label="State"
               />
             </Grid>
@@ -114,9 +152,21 @@ function JEEMainClosingRank() {
                 label="Program Name"
               />
             </Grid>
+            <Grid size={{ xs: 12 }}>
+              <Box sx={{ display: "flex", justifyContent: "center" }}>
+                <Button
+                  onClick={calculateData}
+                  variant="contained"
+                  sx={{ minWidth: 150 }}
+                >
+                  Get Ranks
+                </Button>
+              </Box>
+            </Grid>
           </Grid>
         </Box>
       </Paper>
+      {data && <DataGrid columns={columns} rows={rows} />}
     </Box>
   );
 }
