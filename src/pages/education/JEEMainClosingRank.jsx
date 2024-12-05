@@ -24,6 +24,8 @@ const quotas = [
   { name: "Home State", value: "HS" },
   { name: "Other State", value: "OS" },
   { name: "Jammu And Kashmir", value: "JK" },
+  { name: "Ladakh", value: "LA" },
+  { name: "Goa", value: "GO" },
 ];
 
 const seatTypes = [{ name: "Open", value: "open" }];
