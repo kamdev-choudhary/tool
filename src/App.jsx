@@ -12,7 +12,7 @@ function App() {
   return (
     <ThemeProvider theme={theme === "light" ? lightTheme : darkTheme}>
       <CssBaseline />
-      <Router basename="/tool">
+      <Router>
         <SuspenseWrapper>
           <Layout />
         </SuspenseWrapper>
