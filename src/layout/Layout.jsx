@@ -1,0 +1,39 @@
+import React from "react";
+import Navbar from "./Navbar";
+import { Box, Container } from "@mui/material";
+import routes from "../routes";
+
+function DefaultLayout() {
+  return (
+    <Box
+      sx={{
+        bgcolor: "background.default",
+        height: "100vh",
+        display: "flex",
+        flexDirection: "column",
+      }}
+    >
+      {/* Fixed Navbar */}
+      <Box
+        sx={{ position: "fixed", top: 0, left: 0, width: "100%", zIndex: 1200 }}
+      >
+        <Navbar />
+      </Box>
+
+      {/* Scrollable Body */}
+      <Box
+        sx={{
+          flex: 1, // Fills the remaining vertical space
+          overflowY: "auto", // Enables vertical scrolling
+          mt: 8, // Matches the Navbar height
+        }}
+      >
+        <Container maxWidth="lg" sx={{ p: { xs: 0, md: 1, lg: 2 } }}>
+          {routes}
+        </Container>
+      </Box>
+    </Box>
+  );
+}
+
+export default DefaultLayout;
