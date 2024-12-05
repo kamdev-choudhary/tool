@@ -11,36 +11,28 @@ import {
   RadioGroup,
   FormControlLabel,
   Radio,
+  Autocomplete,
+  TextField,
 } from "@mui/material";
 import { CustomToolbar } from "../../components/CustomToolbar";
 
-import states from "../../data/states.json";
-import nit2024 from "../../data/nit/nit2024.json";
+import iit2024 from "../../data/iit/iit2024.json";
 import categories from "../../data/categories.json";
 import _ from "lodash";
 import { DataGrid } from "@mui/x-data-grid";
+import iits from "../../data/iit/iits.json";
 
-const quotas = [
-  { name: "Home State", value: "HS" },
-  { name: "Other State", value: "OS" },
-  { name: "Jammu And Kashmir", value: "JK" },
-  { name: "Ladakh", value: "LA" },
-  { name: "Goa", value: "GO" },
-];
-
-function JEEMainClosingRank() {
-  const [state, setState] = useState("");
-  const [quota, setQuota] = useState("");
+function JEEAdvORCR() {
+  const [institute, setInstitute] = useState("");
   const [gender, setGender] = useState("");
   const [seatType, setSeatType] = useState("");
   const [program, setProgram] = useState("");
 
   // Generate unique programs dynamically based on selected filters
   const programs = useMemo(() => {
-    const filteredPrograms = nit2024.filter((d) => {
+    const filteredPrograms = iit2024.filter((d) => {
       return (
-        (!state || d.State === state) &&
-        (!quota || d.Quota === quota) &&
+        (!institute || d.Institute === institute) &&
         (!seatType || d["Seat Type"] === seatType) &&
         (!gender || d.Gender === gender)
       );
@@ -55,20 +47,19 @@ function JEEMainClosingRank() {
     );
 
     return _.sortBy(uniquePrograms, "name");
-  }, [state, quota, gender, seatType]);
+  }, [institute, gender, seatType]);
 
   // Filtered Data Logic
   const filteredData = useMemo(() => {
-    return nit2024.filter((d) => {
+    return iit2024.filter((d) => {
       return (
-        (!state || d.State === state) &&
-        (!quota || d.Quota === quota) &&
+        (!institute || d.Institute === institute) &&
         (!seatType || d["Seat Type"] === seatType) &&
         (!gender || d.Gender === gender) &&
         (!program || d["Academic Program Name"] === program)
       );
     });
-  }, [state, quota, gender, seatType, program]);
+  }, [institute, gender, seatType, program]);
 
   // Columns for DataGrid
   const columns = [
@@ -79,18 +70,11 @@ function JEEMainClosingRank() {
       align: "center",
       headerAlign: "center",
     },
-    { field: "Institute", headerName: "Institute", minWidth: 250 },
-    {
-      field: "State",
-      headerName: "State",
-      minWidth: 100,
-      align: "center",
-      headerAlign: "center",
-    },
+    { field: "Institute", headerName: "Institute", minWidth: 150 },
     {
       field: "Academic Program Name",
       headerName: "Program Name",
-      minWidth: 250,
+      minWidth: 150,
       flex: 1,
     },
     {
@@ -157,23 +141,14 @@ function JEEMainClosingRank() {
           <Grid container spacing={2}>
             <Grid size={{ xs: 12, lg: 6 }}>
               <CustomDropDown
-                value={state}
-                data={_.sortBy(states)}
-                onChange={(e) => setState(e.target.value)}
+                value={institute}
+                data={_.sortBy(iits)}
+                onChange={(e) => setInstitute(e.target.value)}
                 name="name"
-                label="State"
+                label="Institute"
               />
             </Grid>
-            <Grid size={{ xs: 12, lg: 6 }}>
-              <CustomDropDown
-                value={quota}
-                data={quotas}
-                onChange={(e) => setQuota(e.target.value)}
-                name="name"
-                dropdownValue="value"
-                label="Quota"
-              />
-            </Grid>
+
             <Grid size={{ xs: 12, lg: 6 }}>
               <Box>
                 <FormControl>
@@ -205,7 +180,7 @@ function JEEMainClosingRank() {
             <Grid size={{ xs: 12, lg: 6 }}>
               <CustomDropDown
                 value={seatType}
-                data={categories}
+                data={_.sortBy(categories)}
                 onChange={(e) => setSeatType(e.target.value)}
                 name="name"
                 dropdownValue="value"
@@ -213,13 +188,20 @@ function JEEMainClosingRank() {
               />
             </Grid>
             <Grid size={{ xs: 12, lg: 6 }}>
-              <CustomDropDown
-                value={program}
-                data={programs}
-                onChange={(e) => setProgram(e.target.value)}
-                name="name"
-                dropdownValue="value"
-                label="Program"
+              <Autocomplete
+                size="small"
+                options={programs}
+                getOptionLabel={(option) => option.name}
+                renderInput={(params) => (
+                  <TextField {...params} label="Select a Program" />
+                )}
+                value={programs.find((p) => p.value === program) || null}
+                onChange={(event, newValue) => {
+                  setProgram(newValue?.value || "");
+                }}
+                isOptionEqualToValue={(option, value) =>
+                  option.value === value?.value
+                } // Match by value
               />
             </Grid>
           </Grid>
@@ -249,4 +231,4 @@ function JEEMainClosingRank() {
   );
 }
 
-export default JEEMainClosingRank;
+export default JEEAdvORCR;

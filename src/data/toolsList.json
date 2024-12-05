@@ -101,6 +101,12 @@
       "description": "",
       "path": "/edu/jeemain/closing-rank",
       "icon": "https://img.icons8.com/3d-fluency/50/home.png"
+    },
+    {
+      "name": "JEE Adv Closing Rank",
+      "description": "",
+      "path": "/edu/jeeadv/closing-rank",
+      "icon": "https://img.icons8.com/3d-fluency/50/home.png"
     }
   ],
   "Developer": [

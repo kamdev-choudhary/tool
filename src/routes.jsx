@@ -45,6 +45,7 @@ const JEEMainRankCalculator = React.lazy(() =>
 const JEEMainClosingRank = React.lazy(() =>
   import("./pages/education/JEEMainClosingRank")
 );
+const JEEAdvORCR = React.lazy(() => import("./pages/education/JEEAdvORCR"));
 
 // Define routes
 const routes = (
@@ -83,6 +84,7 @@ const routes = (
       element={<JEEMainRankCalculator />}
     />
     <Route path="/edu/jeemain/closing-rank" element={<JEEMainClosingRank />} />
+    <Route path="/edu/jeeadv/closing-rank" element={<JEEAdvORCR />} />
 
     {/* Default Route */}
     <Route path="*" element={<NotFoundPage />} />

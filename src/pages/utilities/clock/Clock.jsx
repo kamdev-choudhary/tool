@@ -82,12 +82,6 @@ function Clock() {
         <DigitalClock />
       </div>
       {/* Hidden video for fallback */}
-      <video ref={videoRef} loop muted playsInline style={{ display: "none" }}>
-        <source
-          src="data:video/mp4;base64,AAAAIGZ0eXBtcDQyAAAAAG1wNDEAAACCaG1kYQAAAAAABGhkbHIAAAAAAAAAAHBob3QAAAAAAAAAAAAAAAAAAAAAAC1tZGF0AAAAAAAAAAAAAAAAAAAAAExhdmY1Ni4zMS4xMDA="
-          type="video/mp4"
-        />
-      </video>
     </div>
   );
 }
