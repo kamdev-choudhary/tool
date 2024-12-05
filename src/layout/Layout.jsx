@@ -18,8 +18,6 @@ function DefaultLayout() {
       >
         <Navbar />
       </Box>
-
-      {/* Scrollable Body */}
       <Box
         sx={{
           flex: 1,
@@ -27,7 +25,7 @@ function DefaultLayout() {
           mt: 8,
         }}
       >
-        <Container maxWidth="lg" sx={{ p: { xs: 0, md: 1, lg: 2 } }}>
+        <Container maxWidth="lg" sx={{ p: { xs: 1, md: 1, lg: 2 } }}>
           {routes}
         </Container>
       </Box>

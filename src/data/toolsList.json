@@ -93,13 +93,13 @@
     {
       "name": "JEE Main Rank Calculator",
       "description": "",
-      "path": "/jee/main/rank-calculator",
+      "path": "/edu/jeemain/rank-prediction",
       "icon": "https://img.icons8.com/3d-fluency/50/rating.png"
     },
     {
       "name": "JEE Main Closing Rank",
       "description": "",
-      "path": "/jee/main/closing-rank",
+      "path": "/edu/jeemain/closing-rank",
       "icon": "https://img.icons8.com/3d-fluency/50/home.png"
     }
   ],

@@ -32,7 +32,7 @@ const DigitalClock = () => {
   const flipVariants = {
     initial: { rotateX: 0 },
     animate: { rotateX: 360 },
-    exit: { rotateX: -360 },
+    exit: { rotateX: +180 },
   };
 
   return (

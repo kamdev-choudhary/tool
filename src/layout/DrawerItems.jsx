@@ -11,12 +11,11 @@ import {
 } from "@mui/material";
 import { ArrowDropDownRounded } from "@mui/icons-material";
 import { useNavigate } from "react-router-dom";
-// import toolsList from "../data/toolsList.json";
+import toolsList from "../data/toolsList.json";
 import { icons } from "../constants/icons";
 
 const DrawerItems = ({ setDrawerOpen }) => {
   const navigate = useNavigate();
-  const toolsList = {};
 
   const renderCategoryItems = (category) =>
     toolsList[category]?.map((button) => (

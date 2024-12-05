@@ -38,24 +38,53 @@ const Exceltojson = React.lazy(() => import("./pages/developers/ExcelToJson"));
 const Jsontoexcel = React.lazy(() => import("./pages/developers/JsonToExcel"));
 const FreeApi = React.lazy(() => import("./pages/developers/FreeApi"));
 
+// Education
+const JEEMainRankCalculator = React.lazy(() =>
+  import("./pages/education/JEEMainRankCalculator")
+);
+const JEEMainClosingRank = React.lazy(() =>
+  import("./pages/education/JEEMainClosingRank")
+);
+
 // Define routes
 const routes = (
   <Routes>
     <Route path="/" element={<Home />} />
+
+    {/* Utilities */}
     <Route path="/clock" element={<Clock />} />
     <Route path="/password-generator" element={<Password />} />
     <Route path="/color-picker" element={<ColorPicker />} />
-    <Route path="/crypto" element={<Crypto />} />
-    <Route path="/jokes" element={<Jokes />} />
-    <Route path="/sayari" element={<Sayari />} />
     <Route path="/qr-code-generator" element={<QRCodeGenerator />} />
     <Route path="/dictionary" element={<Dictionary />} />
+
+    {/* Crypography */}
+    <Route path="/crypto" element={<Crypto />} />
+
+    {/* Entertainments */}
+    <Route path="/jokes" element={<Jokes />} />
+    <Route path="/sayari" element={<Sayari />} />
+
+    {/* Images tools */}
     <Route path="/image/compressor" element={<ImageCompressor />} />
     <Route path="/image/converter" element={<ImageConverter />} />
+
+    {/* Pdfs tools */}
     <Route path="/pdf/compressor" element={<PdfCompressor />} />
+
+    {/* Developers tools */}
     <Route path="/dev/excel-to-json" element={<Exceltojson />} />
     <Route path="/dev/json-to-excel" element={<Jsontoexcel />} />
     <Route path="/dev/free-api" element={<FreeApi />} />
+
+    {/* Educational Tools */}
+    <Route
+      path="/edu/jeemain/rank-prediction"
+      element={<JEEMainRankCalculator />}
+    />
+    <Route path="/edu/jeemain/closing-rank" element={<JEEMainClosingRank />} />
+
+    {/* Default Route */}
     <Route path="*" element={<NotFoundPage />} />
   </Routes>
 );

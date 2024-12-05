@@ -105,7 +105,7 @@ function ExcelToJson() {
           Excel to JSON Converter
         </Typography>
 
-        <Paper
+        <Box
           {...getRootProps()}
           sx={{
             padding: 4,
@@ -114,14 +114,13 @@ function ExcelToJson() {
             borderRadius: 2,
             width: "100%",
             cursor: "pointer",
-            backgroundColor: "#f9f9f9",
           }}
         >
           <input {...getInputProps()} />
           <Typography variant="body1">
             Drag & drop an Excel file here, or click to select a file
           </Typography>
-        </Paper>
+        </Box>
 
         {isLoading && <CircularProgress sx={{ marginY: 2 }} />}
 
