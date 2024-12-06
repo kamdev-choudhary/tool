@@ -16,11 +16,6 @@
       "name": "Crypto JS",
       "description": "A versatile JavaScript library for implementing cryptographic algorithms.",
       "path": "/crypto"
-    },
-    {
-      "name": "Hash Generator",
-      "description": "Generate Hash Codes",
-      "path": "/hash"
     }
   ],
   "Entertainment": [
