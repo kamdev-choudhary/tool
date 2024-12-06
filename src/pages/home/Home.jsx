@@ -107,7 +107,7 @@ function Home() {
                         }}
                         onClick={() => navigate(tool?.path)}
                       >
-                        {/* <img src={tool.icon} height={30} alt={tool.name} /> */}
+                        <img src={tool.icon} height={30} alt={tool.name} />
                         <Typography variant="body1" sx={{ ml: 2 }}>
                           {tool.name}
                         </Typography>

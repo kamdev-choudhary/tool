@@ -63,9 +63,9 @@ const Navbar = () => {
         key={item.name}
         onClick={() => navigateTo(item.path)}
       >
-        {/* <ListItemIcon>
+        <ListItemIcon>
           <img src={item.icon} alt={item.name} style={{ height: 24 }} />
-        </ListItemIcon> */}
+        </ListItemIcon>
         <Typography>{item.name}</Typography>
       </MenuItem>
     ));
@@ -97,11 +97,11 @@ const Navbar = () => {
             }}
             onClick={() => navigate("/")}
           >
-            {/* <img
+            <img
               src={icons.home}
               alt="Home"
               style={{ height: 24, marginRight: 8 }}
-            /> */}
+            />
             <Typography variant="body2">Home</Typography>
           </Box>
 

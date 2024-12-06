@@ -8,4 +8,5 @@ export const icons = {
   Pdf: "https://img.icons8.com/3d-fluency/188/pdf-file.png",
   Education: "https://img.icons8.com/3d-fluency/50/graduation-cap.png",
   Developer: "https://img.icons8.com/3d-fluency/50/under-computer.png",
+  Files: "https://img.icons8.com/3d-fluency/94/document.png",
 };
