@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import { CopyToClipboard } from "react-copy-to-clipboard";
 import { Box, Button, Paper, Typography } from "@mui/material";
-import { FileCopy } from "@mui/icons-material";
+import { DoneRounded, FileCopy } from "@mui/icons-material";
 
 const CodeSnippet = ({
   code,
@@ -49,7 +49,7 @@ const CodeSnippet = ({
           <Button
             color=""
             size="small"
-            startIcon={<FileCopy />}
+            startIcon={copied ? <DoneRounded /> : <FileCopy />}
             sx={{
               position: "absolute",
               top: 10,

@@ -8,6 +8,7 @@ import {
   Paper,
 } from "@mui/material";
 import CryptoJS from "crypto-js";
+import CodeSnippet from "../../components/CodeSnippet";
 
 // Supported hash algorithms
 const hashAlgorithms = [
@@ -62,10 +63,9 @@ const HashGenerator = () => {
         flexDirection: "column",
         alignItems: "center",
         backgroundColor: "background.default",
-        p: 3,
       }}
     >
-      <Paper elevation={3} sx={{ p: 4, width: "100%" }}>
+      <Paper elevation={3} sx={{ p: 3, width: "100%" }}>
         <Typography variant="h4" gutterBottom textAlign="center">
           Hash Generator
         </Typography>
@@ -106,19 +106,7 @@ const HashGenerator = () => {
         {hashResult && (
           <Box sx={{ mt: 3 }}>
             <Typography variant="h6">Hash Result:</Typography>
-            <Typography
-              variant="body1"
-              sx={{
-                wordWrap: "break-word",
-                backgroundColor: "background.paper",
-                p: 2,
-                borderRadius: 2,
-                border: "1px solid",
-                borderColor: "divider",
-              }}
-            >
-              {hashResult}
-            </Typography>
+            <CodeSnippet code={hashResult} />
           </Box>
         )}
       </Paper>
