@@ -72,13 +72,6 @@ function JEEMainClosingRank() {
 
   // Columns for DataGrid
   const columns = [
-    {
-      field: "id",
-      headerName: "SN",
-      width: 50,
-      align: "center",
-      headerAlign: "center",
-    },
     { field: "Institute", headerName: "Institute", minWidth: 250 },
     {
       field: "State",

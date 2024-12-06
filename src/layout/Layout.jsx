@@ -1,7 +1,8 @@
 import React from "react";
 import Navbar from "./Navbar";
 import { Box, Container } from "@mui/material";
-import routes from "../routes";
+// import routes from "../routes";
+import RoutesComponent from "../routes";
 
 function DefaultLayout() {
   return (
@@ -26,7 +27,7 @@ function DefaultLayout() {
         }}
       >
         <Container maxWidth="lg" sx={{ p: { xs: 1, md: 1, lg: 2 } }}>
-          {routes}
+          <RoutesComponent />
         </Container>
       </Box>
     </Box>

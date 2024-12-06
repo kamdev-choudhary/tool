@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import { CopyToClipboard } from "react-copy-to-clipboard";
 import { Box, Button, Paper, Typography } from "@mui/material";
-import { DoneRounded, FileCopy } from "@mui/icons-material";
+import { ContentCopyRounded, DoneRounded } from "@mui/icons-material";
 
 const CodeSnippet = ({
   code,
@@ -22,10 +22,12 @@ const CodeSnippet = ({
         sx={{
           padding: 1.5,
           position: "relative",
-          borderRadius: 1,
-          boxShadow: 3,
+          boxShadow: "0px 4px 12px rgba(0, 0, 0, 0.1)",
+          transition: "all 0.3s ease-in-out",
+          ":hover": {
+            boxShadow: "0px 6px 16px rgba(0, 0, 0, 0.2)",
+          },
           backgroundColor: "background.paper",
-          fontFamily: '"Courier New", Courier, monospace',
           overflow: "auto",
         }}
         elevation={3}
@@ -37,7 +39,6 @@ const CodeSnippet = ({
             wordBreak: "break-word",
             marginBottom: 0,
             marginTop: 4,
-            border: "1px solid rgba(0,0,0,0.1)",
             p: 2,
             borderRadius: 1,
           }}
@@ -49,7 +50,7 @@ const CodeSnippet = ({
           <Button
             color=""
             size="small"
-            startIcon={copied ? <DoneRounded /> : <FileCopy />}
+            startIcon={copied ? <DoneRounded /> : <ContentCopyRounded />}
             sx={{
               position: "absolute",
               top: 10,
