@@ -106,7 +106,10 @@ const HashGenerator = () => {
         {hashResult && (
           <Box sx={{ mt: 3 }}>
             <Typography variant="h6">Hash Result:</Typography>
-            <CodeSnippet code={hashResult} />
+            <CodeSnippet
+              code={hashResult}
+              onClear={() => setHashResult(null)}
+            />
           </Box>
         )}
       </Paper>
