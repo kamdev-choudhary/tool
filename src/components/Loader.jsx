@@ -7,9 +7,9 @@ function Loader({ open = true }) {
     <Backdrop
       open={open}
       sx={{
-        zIndex: 1500,
         backdropFilter: "blur(5px)", // Adjust the blur level here
         backgroundColor: "rgba(0, 0, 0, 0.5)", // Optional: Add some transparency to the background
+        zIndex: 4000,
       }}
     >
       <Paper

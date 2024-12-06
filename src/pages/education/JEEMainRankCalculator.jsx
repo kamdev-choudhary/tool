@@ -47,6 +47,7 @@ function JEEMainRankCalculator() {
               <FormControl>
                 <FormLabel>Select Score or Percentile</FormLabel>
                 <RadioGroup
+                  row
                   value={selection} // Controlled by state
                   onChange={(e) => setSelection(e.target.value)} // Handle change
                 >

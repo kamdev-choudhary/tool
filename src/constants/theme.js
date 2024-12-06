@@ -1,6 +1,5 @@
 import { createTheme } from "@mui/material";
 
-// Common configuration for both themes
 const commonTheme = {
   shape: {
     borderRadius: 8, // Rounded corners for all components
@@ -14,50 +13,45 @@ const commonTheme = {
   components: {},
 };
 
-// Light theme
 export const lightTheme = createTheme({
   ...commonTheme,
   palette: {
     mode: "light",
     primary: {
-      main: "#1976d2", // Blue as primary
+      main: "#5E35B1", // Rich purple
     },
     secondary: {
-      main: "#9c27b0", // Purple as secondary
+      main: "#388E3C", // Deep green
     },
     background: {
-      default: "#f1f3fb", // Light background
-      paper: "#ffffff", // Paper background
-      primary: "#fff",
+      default: "#f5f5f5", // Neutral light background
+      paper: "#ffffff", // Pure white paper background
     },
     text: {
-      primary: "#000000", // Text color
-      secondary: "#666666", // Secondary text color
+      primary: "#212121", // Deep black text
+      secondary: "#616161", // Subtle gray text
     },
   },
-  components: {},
 });
 
-// Dark theme
+// Dark theme with rich purple and green
 export const darkTheme = createTheme({
   ...commonTheme,
   palette: {
     mode: "dark",
     primary: {
-      main: "#90caf9", // Light blue as primary
+      main: "#9575CD", // Lighter purple for dark mode
     },
     secondary: {
-      main: "#f48fb1", // Pink as secondary
+      main: "#4CAF50", // Softer green for dark mode
     },
     background: {
-      default: "#121212", // Dark background
-      paper: "#1e1e1e", // Paper background
-      primary: "#010101",
+      default: "#121212", // Neutral dark background
+      paper: "#1E1E1E", // Slightly lighter dark for paper
     },
     text: {
-      primary: "#ffffff", // Text color
-      secondary: "#bbbbbb", // Secondary text color
+      primary: "#FFFFFF", // Pure white text
+      secondary: "#BDBDBD", // Subtle gray text
     },
   },
-  components: {},
 });

@@ -14,6 +14,8 @@ const ColorPicker = React.lazy(() =>
   import("./pages/utilities/color/ColorPicker")
 );
 const Crypto = React.lazy(() => import("./pages/cryptography/CryptoJS"));
+const Hash = React.lazy(() => import("./pages/cryptography/Hash"));
+
 const QRCodeGenerator = React.lazy(() =>
   import("./pages/utilities/qr/QRCodeGenerator")
 );
@@ -63,6 +65,7 @@ const routes = (
 
     {/* Crypography */}
     <Route path="/crypto" element={<Crypto />} />
+    <Route path="/hash" element={<Hash />} />
 
     {/* Entertainments */}
     <Route path="/jokes" element={<Jokes />} />

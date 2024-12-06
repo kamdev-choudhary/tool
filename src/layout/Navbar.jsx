@@ -58,7 +58,11 @@ const Navbar = () => {
   // Render menu items for a category
   const renderMenuItems = (category) =>
     toolsList[category]?.map((item) => (
-      <MenuItem key={item.name} onClick={() => navigateTo(item.path)}>
+      <MenuItem
+        sx={{ minWidth: 200 }}
+        key={item.name}
+        onClick={() => navigateTo(item.path)}
+      >
         {/* <ListItemIcon>
           <img src={item.icon} alt={item.name} style={{ height: 24 }} />
         </ListItemIcon> */}
