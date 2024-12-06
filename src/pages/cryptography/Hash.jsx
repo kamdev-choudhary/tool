@@ -65,7 +65,7 @@ const HashGenerator = () => {
         p: 3,
       }}
     >
-      <Paper elevation={3} sx={{ p: 4, maxWidth: 500, width: "100%" }}>
+      <Paper elevation={3} sx={{ p: 4, width: "100%" }}>
         <Typography variant="h4" gutterBottom textAlign="center">
           Hash Generator
         </Typography>
