@@ -100,33 +100,40 @@ function Movies() {
             </Button>
           </motion.div>
         </Box>
-        {!loading && (
-          <Box>
-            <LinearProgress color="success" sx={{ height: 10 }} />
-          </Box>
+
+        {loading && (
+          <LinearProgress color="success" sx={{ width: "100%", mt: 2 }} />
         )}
+
         {movieData && (
           <motion.div
             initial={{ opacity: 0, scale: 0.8 }}
             animate={{ opacity: 1, scale: 1 }}
             transition={{ duration: 0.5 }}
           >
-            <Card sx={{ maxWidth: 1000, mt: 3 }}>
+            <Card sx={{ maxWidth: 1000, mt: 3, textAlign: "left" }}>
               <Grid container spacing={2}>
                 <Grid size={{ xs: 12, md: 4 }}>
-                  <CardMedia
-                    component="img"
-                    height="400"
-                    image={
-                      movieData.Poster !== "N/A"
-                        ? movieData.Poster
-                        : "https://via.placeholder.com/300x400"
-                    }
-                    alt={movieData.Title}
-                  />
+                  <Box
+                    sx={{
+                      p: 2,
+                    }}
+                  >
+                    <CardMedia
+                      sx={{ borderRadius: 2 }}
+                      component="img"
+                      height="400"
+                      image={
+                        movieData.Poster !== "N/A"
+                          ? movieData.Poster
+                          : "https://via.placeholder.com/300x400"
+                      }
+                      alt={movieData.Title}
+                    />
+                  </Box>
                 </Grid>
                 <Grid size={{ xs: 12, md: 8 }}>
-                  <CardContent sx={{}}>
+                  <CardContent>
                     <Typography variant="h5" component="div">
                       {movieData.Title} ({movieData.Year})
                     </Typography>

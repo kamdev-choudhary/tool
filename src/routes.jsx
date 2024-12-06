@@ -36,6 +36,7 @@ const JEEMainClosingRank = React.lazy(() =>
   import("./pages/education/JEEMainClosingRank")
 );
 const JEEAdvORCR = React.lazy(() => import("./pages/education/JEEAdvORCR"));
+const PDFGenerator = React.lazy(() => import("./pages/pdfs/PDFGenerator"));
 
 const RoutesComponent = () => {
   const location = useLocation(); // To track the current location
@@ -62,6 +63,7 @@ const RoutesComponent = () => {
         <Route path="/image/compressor" element={<ImageCompressor />} />
         <Route path="/image/converter" element={<ImageConverter />} />
         <Route path="/pdf/compressor" element={<PdfCompressor />} />
+        <Route path="/pdf/generator" element={<PDFGenerator />} />
         <Route path="/dev/excel-to-json" element={<Exceltojson />} />
         <Route path="/dev/json-to-excel" element={<Jsontoexcel />} />
         <Route path="/dev/free-api" element={<FreeApi />} />

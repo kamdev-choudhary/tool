@@ -71,6 +71,11 @@
       "name": "PDF Compressor",
       "description": "",
       "path": "/pdf/compressor"
+    },
+    {
+      "name": "PDF Generator",
+      "description": "",
+      "path": "/pdf/generator"
     }
   ],
   "Education": [

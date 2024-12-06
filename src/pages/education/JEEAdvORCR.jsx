@@ -63,40 +63,26 @@ function JEEAdvORCR() {
 
   // Columns for DataGrid
   const columns = [
-    {
-      field: "id",
-      headerName: "SN",
-      width: 50,
-      align: "center",
-      headerAlign: "center",
-    },
     { field: "Institute", headerName: "Institute", minWidth: 150 },
     {
       field: "Academic Program Name",
       headerName: "Program Name",
-      minWidth: 150,
+      minWidth: 350,
       flex: 1,
     },
-    {
-      field: "Quota",
-      headerName: "Quota",
-      minWidth: 100,
-      align: "center",
-      headerAlign: "center",
-    },
+
     {
       field: "Seat Type",
       headerName: "Seat Type",
       minWidth: 100,
-      align: "center",
-      headerAlign: "center",
+      flex: 1,
     },
     {
       field: "Gender",
       headerName: "Gender",
-      minWidth: 100,
-      align: "center",
-      headerAlign: "center",
+      minWidth: 80,
+
+      flex: 1,
     },
     {
       field: "Opening Rank",
@@ -104,6 +90,7 @@ function JEEAdvORCR() {
       minWidth: 100,
       align: "center",
       headerAlign: "center",
+      flex: 1,
     },
     {
       field: "Closing Rank",
@@ -111,6 +98,7 @@ function JEEAdvORCR() {
       minWidth: 100,
       headerAlign: "center",
       align: "center",
+      flex: 1,
     },
   ];
 
