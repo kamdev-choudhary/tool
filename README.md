@@ -78,14 +78,3 @@ A set of general-purpose utilities for day-to-day programming tasks, including s
   - Mathematical functions
 
 ---
-
-## Installation
-
-To install the tools collection, use npm or yarn to install the dependencies.
-
-```bash
-# Using npm
-npm install tools-collection
-
-# Using yarn
-yarn add tools-collection
