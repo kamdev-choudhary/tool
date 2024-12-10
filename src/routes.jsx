@@ -38,6 +38,7 @@ const JEEMainClosingRank = React.lazy(() =>
 const JEEAdvORCR = React.lazy(() => import("./pages/education/JEEAdvORCR"));
 const PDFGenerator = React.lazy(() => import("./pages/pdfs/PDFGenerator"));
 const FileMerger = React.lazy(() => import("./pages/file/FileMerger"));
+const FileReader = React.lazy(() => import("./pages/file/FileReader"));
 
 const RoutesComponent = () => {
   const location = useLocation(); // To track the current location
@@ -78,6 +79,7 @@ const RoutesComponent = () => {
         />
         <Route path="/edu/jeeadv/closing-rank" element={<JEEAdvORCR />} />
         <Route path="/file/file-merger" element={<FileMerger />} />
+        <Route path="/file/reader" element={<FileReader />} />
         <Route path="*" element={<NotFoundPage />} />
       </Routes>
     </motion.div>

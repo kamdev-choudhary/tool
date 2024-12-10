@@ -135,6 +135,12 @@
       "description": "Explore a list of free APIs for your development needs.",
       "path": "/file/file-merger",
       "icon": "https://img.icons8.com/3d-fluency/94/add-file.png"
+    },
+    {
+      "name": "File Merger",
+      "description": "Explore a list of free APIs for your development needs.",
+      "path": "/file/reader",
+      "icon": "https://img.icons8.com/3d-fluency/94/add-file.png"
     }
   ]
 }

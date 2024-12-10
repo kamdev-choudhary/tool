@@ -76,8 +76,8 @@ const Navbar = () => {
         display: "flex",
         justifyContent: "space-between",
         bgcolor: "background.paper",
-        p: 1,
-        px: 2,
+        p: 1.3,
+        px: 2.5,
       }}
     >
       {isSmallScreen ? (

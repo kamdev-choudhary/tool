@@ -24,7 +24,7 @@ export const lightTheme = createTheme({
       main: "#388E3C", // Deep green
     },
     background: {
-      default: "#f5f5f5", // Neutral light background
+      default: "#f1f3fb", // Neutral light background
       paper: "#ffffff", // Pure white paper background
     },
     text: {
