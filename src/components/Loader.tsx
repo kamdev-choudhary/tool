@@ -2,7 +2,13 @@ import { Backdrop, Box, Paper, Typography } from "@mui/material";
 import React from "react";
 import { MoonLoader } from "react-spinners";
 
-function Loader({ open = true }) {
+// Fixing the TypeScript syntax
+interface LoaderProps {
+  open: boolean; // Declare the type for 'open' prop
+}
+
+// Correctly using the export default
+const Loader: React.FC<LoaderProps> = ({ open = true }) => {
   return (
     <Backdrop
       open={open}
@@ -27,10 +33,10 @@ function Loader({ open = true }) {
         }}
       >
         <MoonLoader speedMultiplier={0.5} />
-        <Typography sx={{ mt: 1 }}>Please wait </Typography>
+        <Typography sx={{ mt: 1 }}>Please wait</Typography>
       </Paper>
     </Backdrop>
   );
-}
+};
 
 export default Loader;

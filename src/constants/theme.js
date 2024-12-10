@@ -5,12 +5,23 @@ const commonTheme = {
     borderRadius: 8, // Rounded corners for all components
   },
   typography: {
-    fontFamily: "'Roboto', 'Helvetica', 'Arial', sans-serif",
+    fontFamily: "'Roboto', 'Helvetica', 'Arial', sans-serif", // Default font family
     button: {
       textTransform: "none", // Prevent uppercase button text
     },
+    // You can add other typography-related settings here
   },
-  components: {},
+  components: {
+    // You can add component-specific overrides here in the future
+    // Example:
+    // MuiButton: {
+    //   styleOverrides: {
+    //     root: {
+    //       borderRadius: 12, // Example: custom button radius
+    //     },
+    //   },
+    // },
+  },
 };
 
 export const lightTheme = createTheme({
@@ -34,7 +45,6 @@ export const lightTheme = createTheme({
   },
 });
 
-// Dark theme with rich purple and green
 export const darkTheme = createTheme({
   ...commonTheme,
   palette: {

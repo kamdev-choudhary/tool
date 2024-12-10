@@ -3,13 +3,21 @@ import { CopyToClipboard } from "react-copy-to-clipboard";
 import { Box, Button, Paper, Typography } from "@mui/material";
 import { ContentCopyRounded, DoneRounded } from "@mui/icons-material";
 
-const CodeSnippet = ({
+// Define the prop types interface
+interface CodeSnippetProps {
+  code: string;
+  onClear: () => void;
+  showCloseButton?: boolean;
+  variant?: "body1" | "body2" | "h6" | "h5" | "h4" | "h3" | "h2" | "h1";
+}
+
+const CodeSnippet: React.FC<CodeSnippetProps> = ({
   code,
   onClear,
   showCloseButton = true,
   variant = "body1",
 }) => {
-  const [copied, setCopied] = useState(false);
+  const [copied, setCopied] = useState<boolean>(false);
 
   const handleCopy = () => {
     setCopied(true);
@@ -48,7 +56,7 @@ const CodeSnippet = ({
 
         <CopyToClipboard text={code} onCopy={handleCopy}>
           <Button
-            color=""
+            color="primary"
             size="small"
             startIcon={copied ? <DoneRounded /> : <ContentCopyRounded />}
             sx={{

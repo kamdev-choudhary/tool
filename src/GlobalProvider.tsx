@@ -1,10 +1,26 @@
-import React, { createContext, useContext, useEffect, useState } from "react";
+import React, {
+  createContext,
+  useContext,
+  useEffect,
+  useState,
+  ReactNode,
+} from "react";
 
-// Create the context
-const GlobalContext = createContext();
+// Define types for the context
+interface GlobalContextType {
+  theme: string;
+  toggleTheme: () => void;
+}
 
-export const GlobalProvider = ({ children }) => {
-  const [theme, setTheme] = useState("light");
+// Create the context with a default value
+const GlobalContext = createContext<GlobalContextType | undefined>(undefined);
+
+interface GlobalProviderProps {
+  children: ReactNode;
+}
+
+export const GlobalProvider: React.FC<GlobalProviderProps> = ({ children }) => {
+  const [theme, setTheme] = useState<string>("light");
 
   // Fetch and set the theme based on device preference or localStorage
   useEffect(() => {
@@ -37,4 +53,11 @@ export const GlobalProvider = ({ children }) => {
   );
 };
 
-export const useGlobalContext = () => useContext(GlobalContext);
+// Custom hook to use the context
+export const useGlobalContext = (): GlobalContextType => {
+  const context = useContext(GlobalContext);
+  if (!context) {
+    throw new Error("useGlobalContext must be used within a GlobalProvider");
+  }
+  return context;
+};

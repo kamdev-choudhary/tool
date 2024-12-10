@@ -1,3 +1,4 @@
+import React from "react";
 import {
   GridToolbarColumnsButton,
   GridToolbarContainer,
@@ -12,7 +13,20 @@ import {
 } from "@mui/icons-material";
 import { Button } from "@mui/material";
 
-export const CustomToolbar = ({
+interface CustomToolbarProps {
+  showAddButton: boolean;
+  onAddButtonClick: () => void;
+  showDownloadButton: boolean;
+  onDowloadButtonClick: () => void;
+  showRefreshButton: boolean;
+  onRefreshButtonClick: () => void;
+  disabledDownloadButton: boolean;
+  disabledRefreshButton: boolean;
+  showExportButton: boolean;
+  showGridToolbarColumnButton: boolean;
+}
+
+export const CustomToolbar: React.FC<CustomToolbarProps> = ({
   showAddButton = true,
   onAddButtonClick,
   showDownloadButton = false,

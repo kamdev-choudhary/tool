@@ -14,11 +14,27 @@ import { useNavigate } from "react-router-dom";
 import toolsList from "../data/toolsList.json";
 import { icons } from "../constants/icons";
 
-const DrawerItems = ({ setDrawerOpen }) => {
+// Define types for the structure of the buttons in toolsList
+interface ToolButton {
+  name: string;
+  path?: string;
+  icon: string;
+}
+
+interface ToolsList {
+  [category: string]: ToolButton[]; // Define the structure for toolsList where each category is a string and the value is an array of ToolButton
+}
+
+interface DrawerItemsProps {
+  setDrawerOpen: (open: boolean) => void; // Corrected setDrawerOpen typing to expect a boolean parameter
+}
+
+const DrawerItems: React.FC<DrawerItemsProps> = ({ setDrawerOpen }) => {
   const navigate = useNavigate();
 
-  const renderCategoryItems = (category) =>
-    toolsList[category]?.map((button) => (
+  // Type the parameter `category` as a string that matches keys of toolsList
+  const renderCategoryItems = (category: string) =>
+    (toolsList[category] || []).map((button) => (
       <MenuItem
         key={button.name}
         onClick={() => {
@@ -27,7 +43,7 @@ const DrawerItems = ({ setDrawerOpen }) => {
             return;
           }
           navigate(button.path);
-          setTimeout(() => setDrawerOpen(false), 200);
+          setTimeout(() => setDrawerOpen(false), 200); // Close the drawer after navigating
         }}
         sx={{ display: "flex", alignItems: "center", padding: "8px 16px" }}
       >
