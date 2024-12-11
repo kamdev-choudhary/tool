@@ -1,4 +1,4 @@
-import React, { useMemo, useState } from "react";
+import React, { useEffect, useMemo, useState } from "react";
 import CustomDropDown from "../../components/CustomDropDown";
 import {
   Box,
@@ -34,6 +34,20 @@ function JEEMainClosingRank() {
   const [gender, setGender] = useState("");
   const [seatType, setSeatType] = useState("");
   const [program, setProgram] = useState("");
+
+  const fetchData = async () => {
+    try {
+      fetch("/data/largeData.json")
+        .then((response) => response.json())
+        .then((data) => console.log(data));
+    } catch (error) {
+      console.error(error);
+    }
+  };
+
+  useEffect(() => {
+    fetchData();
+  }, []);
 
   // Generate unique programs dynamically based on selected filters
   const programs = useMemo(() => {

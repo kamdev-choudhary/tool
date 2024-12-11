@@ -17,9 +17,9 @@ import {
 } from "@mui/icons-material";
 import { useGlobalContext } from "../GlobalProvider";
 import { useNavigate } from "react-router-dom";
-import toolsList from "../data/toolsList.json";
 import { icons } from "../constants/icons";
 import DrawerItems from "./DrawerItems";
+import { tools } from "../constants/tools";
 
 const Navbar = () => {
   const navigate = useNavigate();
@@ -57,10 +57,10 @@ const Navbar = () => {
 
   // Render menu items for a category
   const renderMenuItems = (category) =>
-    toolsList[category]?.map((item) => (
+    tools[category]?.map((item, index) => (
       <MenuItem
         sx={{ minWidth: 200 }}
-        key={item.name}
+        key={index}
         onClick={() => navigateTo(item.path)}
       >
         <ListItemIcon>
@@ -105,9 +105,9 @@ const Navbar = () => {
             <Typography variant="body2">Home</Typography>
           </Box>
 
-          {Object.keys(toolsList).map((category) => (
+          {Object.keys(tools)?.map((category, index) => (
             <Box
-              key={category}
+              key={index}
               sx={{
                 display: "flex",
                 alignItems: "center",
@@ -119,11 +119,11 @@ const Navbar = () => {
               }}
               onClick={(event) => openMenu(event, category)}
             >
-              {/* <img
+              <img
                 src={icons[category]}
                 alt={`${category} icon`}
                 style={{ height: 24, marginRight: 8 }}
-              /> */}
+              />
               <Typography
                 variant="body2"
                 sx={{ display: "flex", alignItems: "center" }}

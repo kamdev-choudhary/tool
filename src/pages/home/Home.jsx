@@ -8,7 +8,7 @@ import {
   Paper,
 } from "@mui/material";
 import { ExpandMoreRounded } from "@mui/icons-material"; // Importing expand icon
-import toolsList from "../../data/toolsList.json";
+import { tools } from "../../constants/tools";
 import { useNavigate } from "react-router-dom";
 import { motion } from "framer-motion";
 
@@ -65,9 +65,9 @@ function Home() {
 
         {/* Tools List Section */}
         <Box>
-          {Object.keys(toolsList)?.map((category, index) => (
+          {Object.keys(tools)?.map((category, index) => (
             <motion.div
-              key={category}
+              key={index}
               initial={{ opacity: 0, y: 10 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{
@@ -77,14 +77,23 @@ function Home() {
               }}
               style={{ padding: 4 }}
             >
-              <Accordion>
+              <Accordion
+                sx={{
+                  borderRadius: 2,
+                  boxShadow: "0px 4px 12px rgba(0, 0, 0, 0.1)",
+                  transition: "all 0.3s ease-in-out",
+                  ":hover": {
+                    boxShadow: "0px 6px 16px rgba(0, 0, 0, 0.2)",
+                  },
+                }}
+              >
                 <AccordionSummary expandIcon={<ExpandMoreRounded />}>
                   {category}
                 </AccordionSummary>
                 <AccordionDetails>
-                  {toolsList[category]?.map((tool, toolIndex) => (
+                  {tools[category]?.map((tool, toolIndex) => (
                     <motion.div
-                      key={tool.name}
+                      key={toolIndex}
                       initial={{ opacity: 0, x: -10 }}
                       animate={{ opacity: 1, x: 0 }}
                       transition={{
@@ -100,7 +109,7 @@ function Home() {
                           mb: 1,
                           cursor: "pointer",
                           ":hover": {
-                            bgcolor: "rgba(0,0,0,0.1)",
+                            bgcolor: "rgba(173, 216, 230, 0.3)",
                           },
                           p: 1,
                           borderRadius: 1,
@@ -109,7 +118,7 @@ function Home() {
                       >
                         <img src={tool.icon} height={30} alt={tool.name} />
                         <Typography variant="body1" sx={{ ml: 2 }}>
-                          {tool.name}
+                          {tool?.name}
                         </Typography>
                       </Box>
                     </motion.div>
