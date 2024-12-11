@@ -13,8 +13,8 @@ import {
   Radio,
 } from "@mui/material";
 import { CustomToolbar } from "../../components/CustomToolbar";
+import { states } from "../../constants/basic";
 
-import states from "../../data/states.json";
 import nit2024 from "../../data/nit/nit2024.json";
 import categories from "../../data/categories.json";
 import _ from "lodash";
@@ -165,10 +165,11 @@ function JEEMainClosingRank() {
             <Grid size={{ xs: 12, lg: 6 }}>
               <CustomDropDown
                 value={state}
-                data={_.sortBy(states)}
+                data={_.sortBy(states, "name")}
                 onChange={(e) => setState(e.target.value)}
                 name="name"
                 label="State"
+                dropdownValue="name"
               />
             </Grid>
             <Grid size={{ xs: 12, lg: 6 }}>

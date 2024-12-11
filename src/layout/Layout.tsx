@@ -1,10 +1,9 @@
 import React from "react";
 import Navbar from "./Navbar";
 import { Box, Container } from "@mui/material";
-// import routes from "../routes";
 import RoutesComponent from "../routes";
 
-function DefaultLayout() {
+const DefaultLayout: React.FC = () => {
   return (
     <Box
       sx={{
@@ -23,7 +22,7 @@ function DefaultLayout() {
         sx={{
           flex: 1,
           overflowY: "auto",
-          mt: 6.5,
+          mt: 8,
         }}
       >
         <Container maxWidth="lg" sx={{ p: { xs: 1, md: 1, lg: 2 } }}>
@@ -32,6 +31,6 @@ function DefaultLayout() {
       </Box>
     </Box>
   );
-}
+};
 
 export default DefaultLayout;

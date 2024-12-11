@@ -58,9 +58,9 @@ const CustomDropDown: React.FC<CustomDropDownProps> = ({
           )
         }
       >
-        {data.map((item, index) => (
-          <MenuItem key={index} value={item[dropdownValue] || item.value}>
-            {item[name] || item.label}
+        {data?.map((item, index) => (
+          <MenuItem key={index} value={item[dropdownValue] || item}>
+            {item[name] || item}
           </MenuItem>
         ))}
       </Select>

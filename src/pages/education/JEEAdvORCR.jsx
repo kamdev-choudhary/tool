@@ -1,4 +1,4 @@
-import React, { useMemo, useState } from "react";
+import React, { useEffect, useMemo, useState } from "react";
 import CustomDropDown from "../../components/CustomDropDown";
 import {
   Box,
@@ -6,31 +6,35 @@ import {
   Paper,
   Typography,
   Grid2 as Grid,
-  FormControl,
-  FormLabel,
-  RadioGroup,
-  FormControlLabel,
-  Radio,
   Autocomplete,
   TextField,
 } from "@mui/material";
 import { CustomToolbar } from "../../components/CustomToolbar";
-
-import iit2024 from "../../data/iit/iit2024.json";
-import categories from "../../data/categories.json";
+import { categories } from "../../constants/basic";
 import _ from "lodash";
 import { DataGrid } from "@mui/x-data-grid";
 import iits from "../../data/iit/iits.json";
 
 function JEEAdvORCR() {
+  const [data, setData] = useState([]);
   const [institute, setInstitute] = useState("");
   const [gender, setGender] = useState("");
   const [seatType, setSeatType] = useState("");
   const [program, setProgram] = useState("");
 
+  useEffect(() => {
+    try {
+      fetch("/data/iit/iit2024.json")
+        .then((response) => response.json())
+        .then((data) => setData(data));
+    } catch (error) {
+      console.error(error);
+    }
+  }, []);
+
   // Generate unique programs dynamically based on selected filters
   const programs = useMemo(() => {
-    const filteredPrograms = iit2024.filter((d) => {
+    const filteredPrograms = data.filter((d) => {
       return (
         (!institute || d.Institute === institute) &&
         (!seatType || d["Seat Type"] === seatType) &&
@@ -46,12 +50,14 @@ function JEEAdvORCR() {
       "value"
     );
 
+    console.log(uniquePrograms);
+
     return _.sortBy(uniquePrograms, "name");
-  }, [institute, gender, seatType]);
+  }, [institute, gender, seatType, data]);
 
   // Filtered Data Logic
   const filteredData = useMemo(() => {
-    return iit2024.filter((d) => {
+    return data.filter((d) => {
       return (
         (!institute || d.Institute === institute) &&
         (!seatType || d["Seat Type"] === seatType) &&
@@ -59,7 +65,7 @@ function JEEAdvORCR() {
         (!program || d["Academic Program Name"] === program)
       );
     });
-  }, [institute, gender, seatType, program]);
+  }, [institute, gender, seatType, program, data]);
 
   // Columns for DataGrid
   const columns = [
@@ -122,18 +128,20 @@ function JEEAdvORCR() {
         }}
       >
         <Box sx={{ display: "flex", justifyContent: "center" }}>
-          <Typography variant="h6">State Closing Rank</Typography>
+          <Typography variant="h6">State Closing Rank </Typography>
         </Box>
         <Divider />
         <Box sx={{ mt: 1 }}>
           <Grid container spacing={2}>
             <Grid size={{ xs: 12, lg: 6 }}>
+              {console.log(institute)}
               <CustomDropDown
                 value={institute}
-                data={_.sortBy(iits)}
+                data={_.sortBy(iits, "name")}
                 onChange={(e) => setInstitute(e.target.value)}
                 name="name"
                 label="Institute"
+                dropdownValue="name"
               />
             </Grid>
 
@@ -153,7 +161,7 @@ function JEEAdvORCR() {
             <Grid size={{ xs: 12, lg: 6 }}>
               <CustomDropDown
                 value={seatType}
-                data={_.sortBy(categories)}
+                data={categories}
                 onChange={(e) => setSeatType(e.target.value)}
                 name="name"
                 dropdownValue="value"

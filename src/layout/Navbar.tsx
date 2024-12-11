@@ -21,7 +21,7 @@ import { icons } from "../constants/icons";
 import DrawerItems from "./DrawerItems";
 import { tools } from "../constants/tools";
 
-const Navbar = () => {
+const Navbar: React.FC = () => {
   const navigate = useNavigate();
   const { theme, toggleTheme } = useGlobalContext();
   const isSmallScreen = useMediaQuery("(max-width: 650px)");
