@@ -14,7 +14,7 @@ import {
 } from "@mui/material";
 import { CustomToolbar } from "../../components/CustomToolbar";
 import { states } from "../../constants/basic";
-import categories from "../../data/categories.json";
+import { categories } from "../../constants/basic";
 import _ from "lodash";
 import { DataGrid } from "@mui/x-data-grid";
 
