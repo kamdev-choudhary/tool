@@ -13,10 +13,10 @@ import { CustomToolbar } from "../../components/CustomToolbar";
 import { categories } from "../../constants/basic";
 import _ from "lodash";
 import { DataGrid } from "@mui/x-data-grid";
-import iits from "../../data/iit/iits.json";
 
 function JEEAdvORCR() {
   const [data, setData] = useState([]);
+  const [iits, setIits] = useState([]);
   const [institute, setInstitute] = useState("");
   const [gender, setGender] = useState("");
   const [seatType, setSeatType] = useState("");
@@ -27,6 +27,9 @@ function JEEAdvORCR() {
       fetch("/data/iit/iit2024.json")
         .then((response) => response.json())
         .then((data) => setData(data));
+      fetch("/data/iit/iits.json")
+        .then((response) => response.json())
+        .then((data) => setIits(data));
     } catch (error) {
       console.error(error);
     }

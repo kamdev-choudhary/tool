@@ -14,8 +14,6 @@ import {
 } from "@mui/material";
 import { CustomToolbar } from "../../components/CustomToolbar";
 import { states } from "../../constants/basic";
-
-import nit2024 from "../../data/nit/nit2024.json";
 import categories from "../../data/categories.json";
 import _ from "lodash";
 import { DataGrid } from "@mui/x-data-grid";
@@ -29,6 +27,7 @@ const quotas = [
 ];
 
 function JEEMainClosingRank() {
+  const [nit2024, setNit2024] = useState([]);
   const [state, setState] = useState("");
   const [quota, setQuota] = useState("");
   const [gender, setGender] = useState("");
@@ -37,9 +36,9 @@ function JEEMainClosingRank() {
 
   const fetchData = async () => {
     try {
-      fetch("/data/largeData.json")
+      fetch("/data/nit/nit2024.json")
         .then((response) => response.json())
-        .then((data) => console.log(data));
+        .then((data) => setNit2024(data));
     } catch (error) {
       console.error(error);
     }

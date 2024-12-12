@@ -1,34 +1,21 @@
 import React, { useEffect, useState } from "react";
 import { Box, Divider, Paper, Typography } from "@mui/material";
-import sayari from "../../data/sayari.json";
 import { sheetUrl } from "../../constants/helper";
 import { motion } from "framer-motion";
 
 const Shayari = () => {
   const [sayaries, setSayaries] = useState(null);
 
-  const fetchSayari = async () => {
-    fetch(sheetUrl, {
-      method: "GET",
-      headers: {
-        "Content-Type": "application/x-www-form-urlencoded",
-      },
-    })
-      .then((res) => {
-        console.log(res);
-      })
-      .catch((error) => console.error(error));
-  };
-
-  console.log(sayaries);
-
   useEffect(() => {
-    fetchSayari();
+    fetch("/data/sayari.json")
+      .then((response) => response.json())
+      .then((data) => setSayaries(data));
   }, []);
+
   return (
     <>
-      {sayari &&
-        sayari.map((s, index) => (
+      {sayaries &&
+        sayaries.map((s, index) => (
           <motion.div
             key={index}
             initial={{ opacity: 0, y: 20 }}

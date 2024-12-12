@@ -65,7 +65,20 @@ const HashGenerator = () => {
         backgroundColor: "background.default",
       }}
     >
-      <Paper elevation={3} sx={{ p: 3, width: "100%" }}>
+      <Paper
+        elevation={4}
+        sx={{
+          borderRadius: 2,
+          p: 3,
+          boxShadow: "0px 4px 12px rgba(0, 0, 0, 0.1)",
+          transition: "all 0.3s ease-in-out",
+          ":hover": {
+            boxShadow: "0px 6px 16px rgba(0, 0, 0, 0.2)",
+          },
+          mb: 1,
+          width: "100%",
+        }}
+      >
         <Typography variant="h4" gutterBottom textAlign="center">
           Hash Generator
         </Typography>

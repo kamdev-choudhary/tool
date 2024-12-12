@@ -1,0 +1,206 @@
+{
+  "Data & General Information": [
+    {
+      "name": "OpenWeatherMap",
+      "url": "https://openweathermap.org/api",
+      "description": "Weather data and forecasts."
+    },
+    {
+      "name": "NASA API",
+      "url": "https://api.nasa.gov/",
+      "description": "Space and astronomy-related data."
+    },
+    {
+      "name": "REST Countries",
+      "url": "https://restcountries.com/",
+      "description": "Information about countries worldwide."
+    },
+    {
+      "name": "Open Notify",
+      "url": "http://open-notify.org/",
+      "description": "Data on the International Space Station."
+    },
+    {
+      "name": "Quoteable",
+      "url": "https://github.com/lukePeavey/quotable",
+      "description": "Quotations and authors API."
+    }
+  ],
+  "Finance & Cryptocurrency": [
+    {
+      "name": "CoinGecko",
+      "url": "https://www.coingecko.com/en/api",
+      "description": "Cryptocurrency prices and market data."
+    },
+    {
+      "name": "Open Exchange Rates",
+      "url": "https://openexchangerates.org/",
+      "description": "Currency exchange rates (limited free tier)."
+    },
+    {
+      "name": "Alpha Vantage",
+      "url": "https://www.alphavantage.co/",
+      "description": "Stock and financial market data."
+    }
+  ],
+  "Geolocation & Mapping": [
+    {
+      "name": "PositionStack",
+      "url": "https://positionstack.com/",
+      "description": "Forward and reverse geocoding."
+    },
+    {
+      "name": "GeoDB Cities",
+      "url": "https://rapidapi.com/wirefreethought/api/geodb-cities/",
+      "description": "City data and geolocation."
+    },
+    {
+      "name": "Mapbox",
+      "url": "https://www.mapbox.com/",
+      "description": "Maps and location services."
+    }
+  ],
+  "Social Media & Content": [
+    {
+      "name": "Unsplash API",
+      "url": "https://unsplash.com/developers",
+      "description": "Free stock photos."
+    },
+    {
+      "name": "Giphy API",
+      "url": "https://developers.giphy.com/",
+      "description": "Access to GIFs and stickers."
+    },
+    {
+      "name": "Twitter API (Basic Access)",
+      "url": "https://developer.twitter.com/",
+      "description": "Limited access to Twitter data."
+    }
+  ],
+  "Entertainment": [
+    {
+      "name": "TMDb API",
+      "url": "https://www.themoviedb.org/documentation/api",
+      "description": "Movies and TV show database."
+    },
+    {
+      "name": "Spotify API",
+      "url": "https://developer.spotify.com/documentation/web-api/",
+      "description": "Music data (requires account)."
+    },
+    {
+      "name": "Jikan API",
+      "url": "https://jikan.moe/",
+      "description": "Anime data sourced from MyAnimeList."
+    }
+  ],
+  "AI & NLP": [
+    {
+      "name": "OpenAI API (Free Tier)",
+      "url": "https://openai.com/",
+      "description": "AI tools like ChatGPT (limited free credits)."
+    },
+    {
+      "name": "Hugging Face API",
+      "url": "https://huggingface.co/docs/api-inference/",
+      "description": "NLP and machine learning models."
+    },
+    {
+      "name": "Wit.ai",
+      "url": "https://wit.ai/",
+      "description": "Natural language processing for conversational AI."
+    }
+  ],
+  "Education & Learning": [
+    {
+      "name": "Open Library API",
+      "url": "https://openlibrary.org/developers/api",
+      "description": "Books and library data."
+    },
+    {
+      "name": "Dictionary API",
+      "url": "https://dictionaryapi.dev/",
+      "description": "Free dictionary data."
+    },
+    {
+      "name": "Edamam API",
+      "url": "https://developer.edamam.com/",
+      "description": "Nutrition and recipe data (limited free tier)."
+    }
+  ],
+  "News & Media": [
+    {
+      "name": "NewsAPI",
+      "url": "https://newsapi.org/",
+      "description": "News articles and headlines."
+    },
+    {
+      "name": "Guardian API",
+      "url": "https://open-platform.theguardian.com/",
+      "description": "News from The Guardian."
+    }
+  ],
+  "Technology & Development": [
+    {
+      "name": "GitHub REST API",
+      "url": "https://docs.github.com/en/rest",
+      "description": "GitHub repositories and data."
+    },
+    {
+      "name": "JSONPlaceholder",
+      "url": "https://jsonplaceholder.typicode.com/",
+      "description": "Fake data for prototyping."
+    },
+    {
+      "name": "Reqres",
+      "url": "https://reqres.in/",
+      "description": "Mock user data API."
+    }
+  ],
+  "Fun & Games": [
+    {
+      "name": "PokeAPI",
+      "url": "https://pokeapi.co/",
+      "description": "Pokémon data."
+    },
+    {
+      "name": "Deck of Cards API",
+      "url": "https://deckofcardsapi.com/",
+      "description": "Generate and use a deck of cards programmatically."
+    },
+    {
+      "name": "Trivia API",
+      "url": "https://the-trivia-api.com/",
+      "description": "Fun trivia questions."
+    }
+  ],
+  "Health & Fitness": [
+    {
+      "name": "Nutritionix API",
+      "url": "https://developer.nutritionix.com/",
+      "description": "Nutrition and exercise data."
+    },
+    {
+      "name": "OpenFDA",
+      "url": "https://open.fda.gov/",
+      "description": "FDA drug, device, and food data."
+    }
+  ],
+  "Other Useful APIs": [
+    {
+      "name": "IPify",
+      "url": "https://www.ipify.org/",
+      "description": "Get your public IP address."
+    },
+    {
+      "name": "BoredAPI",
+      "url": "https://www.boredapi.com/",
+      "description": "Suggests activities when you're bored."
+    },
+    {
+      "name": "QR Code API",
+      "url": "https://goqr.me/api/",
+      "description": "Generate QR codes for free."
+    }
+  ]
+}

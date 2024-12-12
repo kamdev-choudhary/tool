@@ -1,115 +1,133 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
 import {
   Accordion,
   AccordionSummary,
   AccordionDetails,
   Typography,
-  List,
-  ListItem,
-  ListItemText,
   Link,
+  Box,
+  CircularProgress,
+  Card,
+  CardContent,
 } from "@mui/material";
 import ExpandMoreIcon from "@mui/icons-material/ExpandMore";
 
-const apiData = {
-  "Data & General Information": [
-    {
-      name: "OpenWeatherMap",
-      url: "https://openweathermap.org/api",
-      description: "Weather data and forecasts.",
-    },
-    {
-      name: "NASA API",
-      url: "https://api.nasa.gov/",
-      description: "Space and astronomy-related data.",
-    },
-    {
-      name: "REST Countries",
-      url: "https://restcountries.com/",
-      description: "Information about countries worldwide.",
-    },
-    {
-      name: "Open Notify",
-      url: "http://open-notify.org/",
-      description: "Data on the International Space Station.",
-    },
-    {
-      name: "Quoteable",
-      url: "https://github.com/lukePeavey/quotable",
-      description: "Quotations and authors API.",
-    },
-  ],
-  "Finance & Cryptocurrency": [
-    {
-      name: "CoinGecko",
-      url: "https://www.coingecko.com/en/api",
-      description: "Cryptocurrency prices and market data.",
-    },
-    {
-      name: "Open Exchange Rates",
-      url: "https://openexchangerates.org/",
-      description: "Currency exchange rates (limited free tier).",
-    },
-    {
-      name: "Alpha Vantage",
-      url: "https://www.alphavantage.co/",
-      description: "Stock and financial market data.",
-    },
-  ],
-  "Geolocation & Mapping": [
-    {
-      name: "PositionStack",
-      url: "https://positionstack.com/",
-      description: "Forward and reverse geocoding.",
-    },
-    {
-      name: "GeoDB Cities",
-      url: "https://rapidapi.com/wirefreethought/api/geodb-cities/",
-      description: "City data and geolocation.",
-    },
-    {
-      name: "Mapbox",
-      url: "https://www.mapbox.com/",
-      description: "Maps and location services.",
-    },
-  ],
-  // Add more categories as needed
-};
-
 const FreeApi = () => {
+  const [data, setData] = useState(null);
+  const [loading, setLoading] = useState(true);
+  const [error, setError] = useState(null);
+  const [expanded, setExpanded] = useState(false);
+
+  useEffect(() => {
+    const fetchData = async () => {
+      try {
+        const response = await fetch("/data/freeapi/apis.json");
+        if (!response.ok) {
+          throw new Error(`HTTP error! Status: ${response.status}`);
+        }
+        const result = await response.json();
+        setData(result);
+      } catch (err) {
+        setError(err.message);
+      } finally {
+        setLoading(false);
+      }
+    };
+
+    fetchData();
+  }, []);
+
+  const handleAccordionChange = (category) => (_, isExpanded) => {
+    setExpanded(isExpanded ? category : false);
+  };
+
+  if (loading) {
+    return (
+      <Box
+        display="flex"
+        flexDirection="column"
+        alignItems="center"
+        justifyContent="center"
+        height="100vh"
+      >
+        <CircularProgress />
+        <Typography variant="h6" mt={2}>
+          Loading...
+        </Typography>
+      </Box>
+    );
+  }
+
+  if (error) {
+    return (
+      <Box
+        display="flex"
+        justifyContent="center"
+        alignItems="center"
+        height="100vh"
+      >
+        <Typography variant="h6" color="error">
+          Error: {error}
+        </Typography>
+      </Box>
+    );
+  }
+
+  if (!data || Object.keys(data).length === 0) {
+    return (
+      <Box
+        display="flex"
+        justifyContent="center"
+        alignItems="center"
+        height="100vh"
+      >
+        <Typography variant="h6" color="textSecondary">
+          No APIs available at the moment.
+        </Typography>
+      </Box>
+    );
+  }
+
   return (
-    <div style={{ padding: "20px" }}>
-      <Typography variant="h4" gutterBottom>
+    <Box px={3} py={5}>
+      <Typography variant="h4" gutterBottom align="center">
         Free API List
       </Typography>
-      {Object.keys(apiData).map((category) => (
-        <Accordion key={category}>
+      {Object.keys(data).map((category) => (
+        <Accordion
+          key={category}
+          expanded={expanded === category}
+          onChange={handleAccordionChange(category)}
+        >
           <AccordionSummary expandIcon={<ExpandMoreIcon />}>
             <Typography variant="h6">{category}</Typography>
           </AccordionSummary>
           <AccordionDetails>
-            <List>
-              {apiData[category].map((api) => (
-                <ListItem key={api.name} alignItems="flex-start">
-                  <ListItemText
-                    primary={
+            <Box display="flex" flexDirection="column" gap={2}>
+              {data[category]?.map((api, index) => (
+                <Card key={index} variant="outlined">
+                  <CardContent>
+                    <Typography variant="h6" gutterBottom>
                       <Link
                         href={api.url}
                         target="_blank"
                         rel="noopener noreferrer"
+                        underline="hover"
                       >
                         {api.name}
                       </Link>
-                    }
-                    secondary={api.description}
-                  />
-                </ListItem>
+                    </Typography>
+                    <Typography variant="body2" color="textSecondary">
+                      {api.description}
+                    </Typography>
+                  </CardContent>
+                </Card>
               ))}
-            </List>
+            </Box>
           </AccordionDetails>
         </Accordion>
       ))}
-    </div>
+    </Box>
   );
 };
 
