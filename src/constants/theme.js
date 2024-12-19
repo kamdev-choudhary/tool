@@ -5,7 +5,7 @@ const commonTheme = {
     borderRadius: 8, // Rounded corners for all components
   },
   typography: {
-    fontFamily: "'Roboto', 'Helvetica', 'Arial', sans-serif", // Default font family
+    fontFamily: " 'Aptos','Roboto', 'Helvetica', 'Arial', sans-serif", // Default font family
     button: {
       textTransform: "none", // Prevent uppercase button text
     },
@@ -33,6 +33,9 @@ export const lightTheme = createTheme({
     },
     secondary: {
       main: "#388E3C", // Deep green
+    },
+    black: {
+      main: "#000",
     },
     background: {
       default: "#f1f3fb", // Neutral light background

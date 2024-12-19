@@ -3,7 +3,6 @@ import { CopyToClipboard } from "react-copy-to-clipboard";
 import { Box, Button, Paper, Typography } from "@mui/material";
 import { ContentCopyRounded, DoneRounded } from "@mui/icons-material";
 
-// Define the prop types interface
 interface CodeSnippetProps {
   code: string;
   onClear: () => void;
@@ -21,7 +20,7 @@ const CodeSnippet: React.FC<CodeSnippetProps> = ({
 
   const handleCopy = () => {
     setCopied(true);
-    setTimeout(() => setCopied(false), 2000); // Reset "Copied" state after 2 seconds
+    setTimeout(() => setCopied(false), 2000);
   };
 
   return (
@@ -38,7 +37,6 @@ const CodeSnippet: React.FC<CodeSnippetProps> = ({
           backgroundColor: "background.paper",
           overflow: "auto",
         }}
-        elevation={3}
       >
         <Typography
           variant={variant}
@@ -47,7 +45,7 @@ const CodeSnippet: React.FC<CodeSnippetProps> = ({
             wordBreak: "break-word",
             marginBottom: 0,
             marginTop: 4,
-            p: 2,
+            p: 1,
             borderRadius: 1,
           }}
         >
@@ -63,9 +61,7 @@ const CodeSnippet: React.FC<CodeSnippetProps> = ({
               position: "absolute",
               top: 10,
               right: 10,
-              fontSize: "12px",
-              borderRadius: 2,
-              textTransform: "none",
+              px: 2,
             }}
           >
             <Typography variant="body2">

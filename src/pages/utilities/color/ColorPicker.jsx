@@ -102,9 +102,19 @@ const ColorPicker = () => {
           </Grid>
         </Grid>
         <Grid size={{ xs: 12, md: 6, lg: 6 }}>
-          <CodeSnippet code={color} showCloseButton={false} />
-          <CodeSnippet code={rgb} showCloseButton={false} />
-          <CodeSnippet code={hsl} showCloseButton={false} />
+          <Box
+            sx={{
+              display: "flex",
+              flexDirection: "column",
+              gap: 1,
+              flex: 1,
+              justifyContent: "space-around",
+            }}
+          >
+            <CodeSnippet code={color} showCloseButton={false} />
+            <CodeSnippet code={rgb} showCloseButton={false} />
+            <CodeSnippet code={hsl} showCloseButton={false} />
+          </Box>
         </Grid>
       </Grid>
     </Paper>
